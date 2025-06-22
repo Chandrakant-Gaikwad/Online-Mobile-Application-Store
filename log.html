@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .LoginBox {
+      background-color: rgb(250, 248, 248);
+      width: 90%;
+      max-width: 450px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+    }
+
+    .image {
+      height: 150px;
+      width: 150px;
+      object-fit: cover;
+    }
+
+    .input {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .input1 {
+      width: 100%;
+      height: 40px;
+      margin-top: 8px;
+    }
+
+    #btn1 {
+      font-size: 20px;
+      background-color: rgb(78, 231, 78);
+      margin-top: 12px;
+      border: none;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .remember input {
+      margin-right: 10px;
+    }
+
+    .footer {
+      background-color: rgb(214, 214, 214);
+      padding: 14px;
+      font-size: large;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+
+    .btn2 {
+      height: 34px;
+      width: 100px;
+      border-radius: 6px;
+      background-color: rgb(248, 23, 23);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* Responsive tweaks */
+@media (max-width: 600px) {
+  .LoginBox {
+    padding: 16px;
+  }
+
+  #btn1, .btn2 {
+    font-size: 18px;
+  }
+
+  .footer {
+    font-size: 16px;
+  }
+}
+
+
+/* Optional: Specific small screen tweaks */
+@media (max-width: 480px) {
+  .LoginBox {
+    padding: 16px;
+  }
+
+  .input1 {
+    font-size: 15px;
+  }
+
+  #btn1, .btn2 {
+    font-size: 16px;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="LoginBox">
+    <div>
+      <img class="image" src="img.png" alt="Login image" />
+    </div>
+
+    <div class="input">
+      <h3>User Name :<br>
+        <input id="username" type="text" placeholder="Enter Username" class="input1" />
+      </h3>
+      <h3>Password :<br>
+        <input id="password" type="password" placeholder="Enter Password" class="input1" />
+      </h3>
+      <button class="input1" id="btn1">Login</button><br><br>
+      <div class="remember">
+        <input type="checkbox" />
+        <p>Remember Me...</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <button class="btn2">Cancel</button>
+      <a href="#">Forgot Password?</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("btn1").addEventListener("click", function (event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!username || !password) {
+        alert("Both Username and Password are required.");
+        return;
+      }
+
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return;
+      }
+
+      if (username === "Chandrakant" && password === "859899") {
+        alert("Login successful!");
+        window.location.href = "Main.html"; 
+      } else {
+        alert("Invalid username or password.");
+      }
+    });
+  </script>
+</body>
+</html>
